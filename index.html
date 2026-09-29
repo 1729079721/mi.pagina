@@ -12,109 +12,49 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         :root {
-            --ink: #1b2440;
-            --paper: #f5f7fb;
-            --accent: #2f6fed;
-            --accent-soft: #e4ecff;
-            --line: #d9e0ef;
+            --ink: #1b2440; --paper: #f5f7fb; --card: #fff; --line: #d9e0ef;
+            --muted: #4a5578; --accent: #2f6fed; --nav: #1b2440;
             --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-            --bs-body-color: var(--ink);
-            --bs-body-bg: var(--paper);
-            --bs-link-color: var(--accent);
+            --bs-body-color: var(--ink); --bs-body-bg: var(--paper);
         }
-
-        .navbar {
-            background: var(--ink);
+        [data-bs-theme="dark"] {
+            --ink: #e8ecf8; --paper: #0f1426; --card: #182038; --line: #2a3557;
+            --muted: #a3adcc; --accent: #6b9bff; --nav: #0a0f1f;
         }
-
-        .navbar-brand {
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-link {
-            border-radius: 999px;
-            padding-inline: 1rem !important;
-        }
-
-        .nav-link.active {
-            background: rgba(255, 255, 255, .14);
-        }
-
-        .hero {
-            padding: 4.5rem 0 2.5rem;
-        }
-
-        .hero h1 {
-            font-weight: 800;
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            letter-spacing: -0.03em;
-            line-height: 1.08;
-            max-width: 16ch;
-        }
-
-        .hero p {
-            max-width: 52ch;
-            font-size: 1.125rem;
-            color: #4a5578;
-        }
-
+        body { transition: background .2s, color .2s; }
+        .navbar { background: var(--nav); }
+        .navbar-brand { font-weight: 800; letter-spacing: -0.02em; }
+        .nav-link { border-radius: 999px; padding-inline: 1rem !important; }
+        .nav-link.active { background: rgba(255, 255, 255, .14); }
+        .hero { padding: 4.5rem 0 2.5rem; }
+        .hero h1 { font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); letter-spacing: -0.03em; line-height: 1.08; max-width: 16ch; }
+        .hero p { max-width: 52ch; font-size: 1.125rem; color: var(--muted); }
         .btn-accent {
-            --bs-btn-bg: var(--accent);
-            --bs-btn-border-color: var(--accent);
-            --bs-btn-color: #fff;
-            --bs-btn-hover-bg: #2358c4;
-            --bs-btn-hover-border-color: #2358c4;
-            --bs-btn-hover-color: #fff;
-            border-radius: 999px;
-            padding: .7rem 1.5rem;
-            font-weight: 700;
+            --bs-btn-bg: var(--accent); --bs-btn-border-color: var(--accent); --bs-btn-color: #fff;
+            --bs-btn-hover-bg: #2358c4; --bs-btn-hover-border-color: #2358c4; --bs-btn-hover-color: #fff;
+            border-radius: 999px; padding: .7rem 1.5rem; font-weight: 700;
         }
-
-        .video-frame {
-            border-radius: 1.25rem;
-            overflow: hidden;
-            background: #000;
-            box-shadow: 0 24px 48px -24px rgba(27, 36, 64, .45);
-        }
-
-        .section-link {
-            display: block;
-            height: 100%;
-            padding: 1.5rem;
-            border: 1px solid var(--line);
-            border-radius: 1rem;
-            background: #fff;
-            color: inherit;
-            text-decoration: none;
-            transition: border-color .15s ease;
-        }
-
-        .section-link:hover,
-        .section-link:focus-visible {
-            border-color: var(--accent);
-            color: inherit;
-        }
-
-        .section-link h2 {
-            font-size: 1.15rem;
-            font-weight: 700;
-        }
-
-        .section-link p {
-            margin: 0;
-            color: #4a5578;
-        }
-
-        footer {
-            border-top: 1px solid var(--line);
-            color: #4a5578;
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--accent);
-            outline-offset: 2px;
-        }
+        .video-frame { border-radius: 1.25rem; overflow: hidden; background: #000; box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .5); }
+        .panel { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: 1.5rem; height: 100%; }
+        .panel h2 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.01em; }
+        .section-link { display: block; color: inherit; text-decoration: none; transition: border-color .15s; }
+        .section-link:hover, .section-link:focus-visible { border-color: var(--accent); color: inherit; }
+        .section-link p { margin: 0; color: var(--muted); }
+        .nav-pills .nav-link { color: var(--ink); }
+        .nav-pills .nav-link.active { background: var(--accent); color: #fff; }
+        .tab-pane { color: var(--muted); }
+        .form-check { padding: .6rem .6rem .6rem 2.4rem; border-radius: .6rem; }
+        .form-check:hover { background: rgba(127, 127, 127, .1); }
+        .form-check-input { cursor: pointer; margin-left: -1.8rem; }
+        .form-check-input:checked { background-color: var(--accent); border-color: var(--accent); }
+        .form-check-input:checked + label { text-decoration: line-through; opacity: .6; }
+        .form-check-label { cursor: pointer; }
+        .progress { height: .6rem; background: var(--line); }
+        .progress-bar { background: var(--accent); transition: width .3s; }
+        .accordion { --bs-accordion-bg: var(--card); --bs-accordion-border-color: var(--line); --bs-accordion-color: var(--ink); --bs-accordion-btn-color: var(--ink); --bs-accordion-active-bg: var(--card); --bs-accordion-active-color: var(--accent); }
+        .accordion-button { font-weight: 700; }
+        footer { border-top: 1px solid var(--line); color: var(--muted); }
+        :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
     </style>
 </head>
 
@@ -127,11 +67,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto gap-1">
+                <ul class="navbar-nav ms-auto gap-1 align-items-sm-center">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="columnas.html">Columnas</a></li>
                     <li class="nav-item"><a class="nav-link" href="tarjeta.html">Tarjeta</a></li>
                     <li class="nav-item"><a class="nav-link disabled" aria-disabled="true" href="#">Próximamente</a></li>
+                    <li class="nav-item">
+                        <button id="themeBtn" class="btn btn-sm btn-outline-light rounded-pill ms-sm-2" type="button">Modo oscuro</button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -141,10 +84,10 @@
         <section class="hero">
             <div class="container">
                 <h1>Aprende Bootstrap paso a paso</h1>
-                <p class="mt-3">Practica columnas, tarjetas y componentes en páginas cortas. Empieza mirando el video y luego abre cada sección.</p>
+                <p class="mt-3">Practica columnas, tarjetas y componentes en páginas cortas. Mira el video y marca tu avance.</p>
                 <div class="d-flex flex-wrap gap-2 mt-4">
-                    <a class="btn btn-accent" href="columnas.html">Ver columnas</a>
-                    <a class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold" href="tarjeta.html">Ver tarjetas</a>
+                    <a class="btn btn-accent" href="#avance">Ver mi avance</a>
+                    <a class="btn btn-outline-secondary rounded-pill px-4 py-2 fw-bold" href="columnas.html">Ir a columnas</a>
                 </div>
             </div>
         </section>
@@ -160,20 +103,55 @@
             </div>
         </section>
 
-        <section class="pb-5">
+        <section class="pb-5" id="avance">
             <div class="container">
                 <div class="row g-3">
-                    <div class="col-12 col-md-6">
-                        <a class="section-link" href="columnas.html">
-                            <h2>Columnas</h2>
-                            <p>Organiza el contenido en el sistema de cuadrícula de 12 columnas.</p>
-                        </a>
+                    <div class="col-12 col-lg-6">
+                        <div class="panel">
+                            <h2>Qué aprenderás</h2>
+                            <ul class="nav nav-pills gap-1 my-3" role="tablist">
+                                <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#t1" type="button" role="tab">Columnas</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#t2" type="button" role="tab">Tarjetas</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#t3" type="button" role="tab">Utilidades</button></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="t1" role="tabpanel">Divide la pantalla en 12 columnas y cambia su tamaño según el dispositivo con <code>col-md-6</code>.</div>
+                                <div class="tab-pane fade" id="t2" role="tabpanel">Agrupa imagen, título, texto y botón en un solo componente con <code>card</code>.</div>
+                                <div class="tab-pane fade" id="t3" role="tabpanel">Ajusta márgenes, colores y alineación sin escribir CSS, con clases como <code>mt-3</code> o <code>text-center</code>.</div>
+                            </div>
+                            <a class="section-link mt-3 fw-bold" style="color: var(--accent)" href="columnas.html">Abrir práctica de columnas</a>
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <a class="section-link" href="tarjeta.html">
-                            <h2>Tarjeta</h2>
-                            <p>Agrupa imagen, texto y botones en un componente reutilizable.</p>
-                        </a>
+                    <div class="col-12 col-lg-6">
+                        <div class="panel">
+                            <div class="d-flex justify-content-between align-items-baseline">
+                                <h2>Mi avance</h2>
+                                <span id="pct" class="fw-bold">0%</span>
+                            </div>
+                            <div class="progress my-3" role="progressbar" aria-label="Avance"><div id="bar" class="progress-bar" style="width:0%"></div></div>
+                            <div id="lista"></div>
+                            <button id="resetBtn" class="btn btn-sm btn-outline-secondary rounded-pill mt-2" type="button">Reiniciar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-5">
+            <div class="container">
+                <h2 class="fw-bold mb-3 fs-4">Preguntas frecuentes</h2>
+                <div class="accordion" id="faq">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">¿Necesito instalar algo?</button></h3>
+                        <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">No. Bootstrap se carga desde un CDN, solo necesitas abrir el archivo en el navegador.</div></div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">¿Puedo cambiar los colores?</button></h3>
+                        <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Sí. Edita las variables al inicio del <code>&lt;style&gt;</code>, como <code>--accent</code>.</div></div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">¿Se guarda mi avance?</button></h3>
+                        <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Sí, en tu navegador. Si borras los datos del sitio, se reinicia.</div></div>
                     </div>
                 </div>
             </div>
@@ -183,6 +161,62 @@
     <footer class="py-4">
         <div class="container small">Práctica de Bootstrap 5</div>
     </footer>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastOk" class="toast text-bg-success border-0" role="status" aria-live="polite">
+            <div class="toast-body fw-bold">¡Completaste todas las lecciones!</div>
+        </div>
+    </div>
+
+    <script>
+        const lecciones = ["Ver el video", "Practicar columnas", "Practicar tarjetas", "Probar el menú en móvil", "Cambiar los colores"];
+        const root = document.documentElement;
+        const themeBtn = document.getElementById("themeBtn");
+        const lista = document.getElementById("lista");
+        const bar = document.getElementById("bar");
+        const pct = document.getElementById("pct");
+
+        function leer(clave, defecto) {
+            try { return JSON.parse(localStorage.getItem(clave)) ?? defecto; } catch (e) { return defecto; }
+        }
+        function guardar(clave, valor) {
+            try { localStorage.setItem(clave, JSON.stringify(valor)); } catch (e) { }
+        }
+
+        // Tema claro / oscuro
+        function aplicarTema(t) {
+            root.setAttribute("data-bs-theme", t);
+            themeBtn.textContent = t === "dark" ? "Modo claro" : "Modo oscuro";
+            guardar("tema", t);
+        }
+        aplicarTema(leer("tema", "light"));
+        themeBtn.addEventListener("click", () => aplicarTema(root.getAttribute("data-bs-theme") === "dark" ? "light" : "dark"));
+
+        // Lista de avance
+        let hechas = leer("hechas", []);
+        lecciones.forEach((txt, i) => {
+            const d = document.createElement("div");
+            d.className = "form-check";
+            d.innerHTML = `<input class="form-check-input" type="checkbox" id="l${i}"><label class="form-check-label d-block" for="l${i}">${txt}</label>`;
+            d.querySelector("input").checked = hechas.includes(i);
+            lista.appendChild(d);
+        });
+
+        function actualizar(avisar) {
+            const marcadas = [...lista.querySelectorAll("input")].map((c, i) => c.checked ? i : -1).filter(i => i >= 0);
+            const p = Math.round(marcadas.length / lecciones.length * 100);
+            bar.style.width = p + "%";
+            pct.textContent = p + "%";
+            guardar("hechas", marcadas);
+            if (avisar && p === 100) bootstrap.Toast.getOrCreateInstance(document.getElementById("toastOk")).show();
+        }
+        lista.addEventListener("change", () => actualizar(true));
+        document.getElementById("resetBtn").addEventListener("click", () => {
+            lista.querySelectorAll("input").forEach(c => c.checked = false);
+            actualizar(false);
+        });
+        actualizar(false);
+    </script>
 </body>
 
 </html>
