@@ -1,39 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Latest compiled and minified CSS -->
+    <title>Home | Práctica con Bootstrap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        :root {
+            --ink: #1b2440;
+            --paper: #f5f7fb;
+            --accent: #2f6fed;
+            --accent-soft: #e4ecff;
+            --line: #d9e0ef;
+            --bs-body-font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+            --bs-body-color: var(--ink);
+            --bs-body-bg: var(--paper);
+            --bs-link-color: var(--accent);
+        }
+
+        .navbar {
+            background: var(--ink);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-link {
+            border-radius: 999px;
+            padding-inline: 1rem !important;
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, .14);
+        }
+
+        .hero {
+            padding: 4.5rem 0 2.5rem;
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            max-width: 16ch;
+        }
+
+        .hero p {
+            max-width: 52ch;
+            font-size: 1.125rem;
+            color: #4a5578;
+        }
+
+        .btn-accent {
+            --bs-btn-bg: var(--accent);
+            --bs-btn-border-color: var(--accent);
+            --bs-btn-color: #fff;
+            --bs-btn-hover-bg: #2358c4;
+            --bs-btn-hover-border-color: #2358c4;
+            --bs-btn-hover-color: #fff;
+            border-radius: 999px;
+            padding: .7rem 1.5rem;
+            font-weight: 700;
+        }
+
+        .video-frame {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 24px 48px -24px rgba(27, 36, 64, .45);
+        }
+
+        .section-link {
+            display: block;
+            height: 100%;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 1rem;
+            background: #fff;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color .15s ease;
+        }
+
+        .section-link:hover,
+        .section-link:focus-visible {
+            border-color: var(--accent);
+            color: inherit;
+        }
+
+        .section-link h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .section-link p {
+            margin: 0;
+            color: #4a5578;
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            color: #4a5578;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="columnas.html">Columnas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="tarjeta.html">Tarjeta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Bootstrap Lab</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="columnas.html">Columnas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tarjeta.html">Tarjeta</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" aria-disabled="true" href="#">Próximamente</a></li>
+                </ul>
+            </div>
         </div>
-
     </nav>
-    <hr>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/XmW1z-YKkmg?si=mPaWS_PVoNE6aQhz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Aprende Bootstrap paso a paso</h1>
+                <p class="mt-3">Practica columnas, tarjetas y componentes en páginas cortas. Empieza mirando el video y luego abre cada sección.</p>
+                <div class="d-flex flex-wrap gap-2 mt-4">
+                    <a class="btn btn-accent" href="columnas.html">Ver columnas</a>
+                    <a class="btn btn-outline-dark rounded-pill px-4 py-2 fw-bold" href="tarjeta.html">Ver tarjetas</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-5">
+            <div class="container">
+                <div class="video-frame ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/XmW1z-YKkmg?si=mPaWS_PVoNE6aQhz"
+                        title="Video de YouTube" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-5">
+            <div class="container">
+                <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                        <a class="section-link" href="columnas.html">
+                            <h2>Columnas</h2>
+                            <p>Organiza el contenido en el sistema de cuadrícula de 12 columnas.</p>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <a class="section-link" href="tarjeta.html">
+                            <h2>Tarjeta</h2>
+                            <p>Agrupa imagen, texto y botones en un componente reutilizable.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4">
+        <div class="container small">Práctica de Bootstrap 5</div>
+    </footer>
 </body>
 
 </html>
